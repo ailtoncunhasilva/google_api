@@ -12,26 +12,44 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kSpacing * 2),
-            child: Column(
-              children: [
-                _buildImage(),
-                _buildUserTextField(),
-                _buildPasswordTextField(),
-                _buildElevatedButton(),
-              ],
+      body: Stack(
+        children: [
+          Image.asset(
+            'images/maptwo.jpg',
+            fit: BoxFit.cover,
+            height: MediaQuery.of(context).size.height * 1.0,
+          ),
+          Container(
+            alignment: Alignment.center,
+            child: SingleChildScrollView(
+              child: Card(
+                color: Colors.pink[50],
+                margin: EdgeInsets.symmetric(horizontal: kSpacing * 2),
+                elevation: 8,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: kSpacing, vertical: kSpacing),
+                  child: Column(
+                    children: [
+                      _buildImage(),
+                      _buildUserTextField(),
+                      _buildPasswordTextField(),
+                      _buildElevatedButton(),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
 
-  Widget _buildImage(){
+  Widget _buildImage() {
     return Image.asset('images/logo.png');
   }
 
